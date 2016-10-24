@@ -2,6 +2,9 @@
 using Autofac.Features.Variance;
 using MediatR;
 using System.Collections.Generic;
+using System.Reflection;
+using ExpenseTracker.Core.Common.Query.Dashboard;
+using Module = Autofac.Module;
 
 namespace ExpenseTracker.Core.Ioc
 {
@@ -12,6 +15,7 @@ namespace ExpenseTracker.Core.Ioc
             builder.RegisterSource(new ContravariantRegistrationSource());
 
             builder.RegisterAssemblyTypes(ThisAssembly).AsImplementedInterfaces();
+            builder.RegisterAssemblyTypes(typeof(IMediator).GetTypeInfo().Assembly).AsImplementedInterfaces();
 
             builder.Register<SingleInstanceFactory>(ctx =>
             {
