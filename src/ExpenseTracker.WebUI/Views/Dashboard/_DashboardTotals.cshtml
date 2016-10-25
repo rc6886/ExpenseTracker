@@ -1,0 +1,45 @@
+﻿@model ExpenseTracker.Core.ViewModels.Dashboard.DashboardTotalsViewModel
+
+<div class="col-lg-3">
+    <div class="ibox float-e-margins">
+        <div class="ibox-title">
+            <h5>Total Spent Today</h5>
+        </div>
+        <div class="ibox-content">
+            <h1 class="no-margins">@Model.TotalSpentToday.ToString("C")</h1>
+            <div class="stat-percent font-bold text-info">5%</div>
+        </div>
+    </div>
+</div>
+<div class="col-lg-3">
+    <div class="ibox float-e-margins">
+        <div class="ibox-title">
+            <h5>Total Spent This Week</h5>
+        </div>
+        <div class="ibox-content">
+            <h1 class="no-margins">@Model.TotalSpentThisWeek.ToString("C")</h1>
+            <div class="stat-percent font-bold text-info">13%</div>
+        </div>
+    </div>
+</div>
+<div class="col-lg-3">
+    <div class="ibox float-e-margins">
+        <div class="ibox-title">
+            <h5>Total Spent This Month</h5>
+        </div>
+        <div class="ibox-content">
+            <h1 class="no-margins">@Model.TotalSpentThisMonth.ToString("C")</h1>
+            <div class="stat-percent font-bold text-info">61%</div>
+        </div>
+    </div>
+</div>
+<div class="col-lg-3">
+    <div class="ibox float-e-margins">
+        <div class="ibox-title">
+            <h5>Income This Month</h5>
+        </div>
+        <div class="ibox-content">
+            <h1 class="no-margins">@Model.TotalIncomeThisMonth.ToString("C")</h1>
+        </div>
+    </div>
+</div>

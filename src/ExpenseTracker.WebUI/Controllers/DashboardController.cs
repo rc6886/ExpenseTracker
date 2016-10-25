@@ -17,7 +17,7 @@ namespace ExpenseTracker.WebUI.Controllers
         public IActionResult Index()
         {
             var result = _mediator.Send(new GetDashboardTotalsQuery());
-            return View();
+            return View(result);
         }
     }
 }
