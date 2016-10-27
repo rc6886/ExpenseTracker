@@ -25,7 +25,13 @@ namespace ExpenseTracker.WebUI.Controllers
         public IActionResult PieChartCategories()
         {
             var result = _mediator.Send(new GetDashboardPieChartCategoriesQuery());
-            var json = JsonConvert.SerializeObject(result);
+            return Json(result);
+        }
+
+        [HttpGet]
+        public IActionResult Transactions()
+        {
+            var result = _mediator.Send(new GetDashboardTransactionsQuery());
             return Json(result);
         }
     }
