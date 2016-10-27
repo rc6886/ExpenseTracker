@@ -1,6 +1,7 @@
 ﻿using ExpenseTracker.Core.Common.Query.Dashboard;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace ExpenseTracker.WebUI.Controllers
 {
@@ -13,11 +14,19 @@ namespace ExpenseTracker.WebUI.Controllers
             _mediator = mediator;
         }
 
-        // GET: /<controller>/
+        [HttpGet]
         public IActionResult Index()
         {
             var result = _mediator.Send(new GetDashboardTotalsQuery());
             return View(result);
+        }
+
+        [HttpGet]
+        public IActionResult PieChartCategories()
+        {
+            var result = _mediator.Send(new GetDashboardPieChartCategoriesQuery());
+            var json = JsonConvert.SerializeObject(result);
+            return Json(result);
         }
     }
 }

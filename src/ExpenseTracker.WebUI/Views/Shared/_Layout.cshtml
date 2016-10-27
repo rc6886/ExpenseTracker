@@ -11,22 +11,25 @@
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/vue.resource/1.0.3/vue-resource.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
-    <div id="wrapper">
-        @Html.Partial("_Navbar")
+<div id="wrapper">
+    @Html.Partial("_Navbar")
 
-        <div id="page-wrapper" class="gray-bg">
-            @Html.Partial("_SearchBar")
+    <div id="page-wrapper" class="gray-bg">
+        @Html.Partial("_SearchBar")
 
-            <div class="wrapper wrapper-content animated fadeInRight">
-                @RenderBody()
-            </div>
+        <div class="wrapper wrapper-content animated fadeInRight">
+            @RenderBody()
+        </div>
 
             @Html.Partial("_Footer")
         </div>
     </div>
+ 
     <!-- Mainly scripts -->
     <script src="js/jquery-2.1.1.js"></script>
     <script src="js/bootstrap.min.js"></script>

@@ -8,7 +8,7 @@ namespace ExpenseTracker.Tests.IntegrationTests.Handlers.Dashboard
     public class GetDashboardTotalsQueryHandlerTests : BaseTest
     {
         [Test]
-        public void HandleQuery_ShouldReturnCorrectTotals()
+        public void Should_get_correct_totals()
         {
             var query = new GetDashboardTotalsQuery();
             var result = Mediator.Send(query);
