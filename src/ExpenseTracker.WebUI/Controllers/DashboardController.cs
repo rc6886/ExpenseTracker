@@ -1,7 +1,8 @@
-﻿using ExpenseTracker.Core.Common.Query.Dashboard;
+﻿using System;
+using ExpenseTracker.Core.Common.Command.Transactions;
+using ExpenseTracker.Core.Common.Query.Dashboard;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 
 namespace ExpenseTracker.WebUI.Controllers
 {
@@ -33,6 +34,13 @@ namespace ExpenseTracker.WebUI.Controllers
         {
             var result = _mediator.Send(new GetDashboardTransactionsQuery());
             return Json(result);
+        }
+
+        [HttpPost]
+        public IActionResult AddTransaction(AddTransactionCommand command)
+        {
+            _mediator.Send(command);
+            return new OkResult();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using ExpenseTracker.Core.Common.Command.Transactions;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ExpenseTracker.WebUI.Controllers
@@ -19,9 +20,9 @@ namespace ExpenseTracker.WebUI.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddTransaction()
+        public IActionResult AddTransaction(AddTransactionCommand command)
         {
-            
+            return View();
         }
     }
 }

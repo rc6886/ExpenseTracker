@@ -4,7 +4,12 @@
 
 @model ExpenseTracker.Core.ViewModels.Dashboard.DashboardTotalsViewModel
 
+
+
 <div id="dashboardIndex">
+    <div class="row">
+        @Html.Partial("_AddTransaction")
+    </div>
     <div class="row">
         @Html.Partial("_DashboardTotals", Model)
     </div>
@@ -19,4 +24,6 @@
 </div>
 
 <script src="~/js/app/dashboardIndex.js"></script>
+
+
 
