@@ -18,7 +18,9 @@ namespace ExpenseTracker.WebUI
             services.AddMvc();
 
             var builder = new ContainerBuilder();
-            builder.RegisterModule(new CoreModule());
+
+            const string connectionString = "server=.;database=ExpenseTracker;integrated security=true;";
+            builder.RegisterModule(new CoreModule(connectionString));
             builder.Populate(services);
 
             var applicationContainer = builder.Build();

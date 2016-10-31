@@ -12,7 +12,8 @@
     "Microsoft.AspNetCore.Mvc.Core": "1.0.1",
     "Microsoft.AspNetCore.Mvc": "1.0.1",
     "ExpenseTracker.Core": "1.0.0-*",
-    "Autofac.Extensions.DependencyInjection": "4.0.0"
+    "Autofac.Extensions.DependencyInjection": "4.0.0",
+    "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0"
   },
 
   "tools": {
