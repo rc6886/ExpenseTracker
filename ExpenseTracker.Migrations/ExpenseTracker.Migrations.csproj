@@ -47,7 +47,7 @@
     <Compile Include="Migrations\Migration_1_CreateTransactionTypeTable.cs" />
     <Compile Include="Migrations\Migration_2_CreateVendorTable.cs" />
     <Compile Include="Migrations\Migration_3_CreateTransactionsTable.cs" />
-    <Compile Include="Migrations\Migration_4_AlterTransactionsColumn.cs" />
+    <Compile Include="Migrations\Migration_4_SeedTransactionTypeTable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

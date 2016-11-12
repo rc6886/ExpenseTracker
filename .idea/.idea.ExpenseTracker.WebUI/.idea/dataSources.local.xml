@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="SQL Server (Microsoft) - ExpenseTracker@localhost" uuid="ddd453b6-d899-432b-8405-01e2e1cdf55c">
+      <secret-storage>master_key</secret-storage>
+      <domain-auth>true</domain-auth>
+      <introspection-scope>ExpenseTracker:*|*:dbo</introspection-scope>
+      <resolve-scope>ExpenseTracker:*</resolve-scope>
+    </data-source>
+  </component>
+</project>

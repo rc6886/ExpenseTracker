@@ -4,7 +4,7 @@
     {
         public DashboardTotalsViewModel() { }
 
-        public DashboardTotalsViewModel(double totalSpentToday, double totalSpentThisWeek, double totalSpentThisMonth, double totalIncomeThisMonth)
+        public DashboardTotalsViewModel(decimal totalSpentToday, decimal totalSpentThisWeek, decimal totalSpentThisMonth, decimal totalIncomeThisMonth)
         {
             TotalSpentToday = totalSpentToday;
             TotalSpentThisWeek = totalSpentThisWeek;
@@ -12,9 +12,9 @@
             TotalIncomeThisMonth = totalIncomeThisMonth;
         }
         
-        public double TotalSpentToday { get; set; }
-        public double TotalSpentThisWeek { get; set; }
-        public double TotalSpentThisMonth { get; set; }
-        public double TotalIncomeThisMonth { get; set; }
+        public decimal TotalSpentToday { get; set; }
+        public decimal TotalSpentThisWeek { get; set; }
+        public decimal TotalSpentThisMonth { get; set; }
+        public decimal TotalIncomeThisMonth { get; set; }
     }
 }

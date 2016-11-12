@@ -1,24 +1,8 @@
 ﻿<div id="dashboardTransactions" class="ibox float-e-margins">
     <div class="ibox-title">
-        <h5>Transactions</h5>
+        <h5>Last 10 Transactions</h5>
     </div>
     <div class="ibox-content" style="display: block;">
-        <div class="row">
-            <div class="col-sm-9 m-b-xs">
-                <div data-toggle="buttons" class="btn-group">
-                    <label class="btn btn-sm btn-white"> <input type="radio" id="option1" name="options"> Day </label>
-                    <label class="btn btn-sm btn-white"> <input type="radio" id="option2" name="options"> Week </label>
-                    <label class="btn btn-sm btn-white active"> <input type="radio" id="option3" name="options"> Month </label>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="input-group">
-                    <input type="text" placeholder="Search" class="input-sm form-control"> <span class="input-group-btn">
-                        <button type="button" class="btn btn-sm btn-primary">Search</button>
-                    </span>
-                </div>
-            </div>
-        </div>
         <div class="table-responsive">
             <table class="table table-striped">
                 <thead>
@@ -32,7 +16,7 @@
                 <tbody>
                     <tr v-for="transaction in transactions">
                         <td>{{transaction.transactionDate}}</td>
-                        <td>{{transaction.name}}</td>
+                        <td>{{transaction.vendor}}</td>
                         <td>{{transaction.amount}}</td>
                         <td>{{transaction.transactionType}}</td>
                     </tr>

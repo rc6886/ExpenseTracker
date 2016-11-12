@@ -10,8 +10,8 @@ namespace ExpenseTracker.Migrations.Migrations
             Execute.Sql(@"
                 CREATE TABLE dbo.TransactionType
                 (
-                    Id      UNIQUEIDENTIFIER PRIMARY KEY NOT NULL
-                    ,Name    VARCHAR(50) NOT NULL
+                    Id      INT PRIMARY KEY NOT NULL 
+                    ,Name   VARCHAR(50) NOT NULL
                 );
             ");
         }

@@ -10,11 +10,11 @@ namespace ExpenseTracker.Migrations.Migrations
             Execute.Sql(@"
                 CREATE TABLE dbo.Transactions
                 (
-                    Id                  UNIQUEIDENTIFIER PRIMARY KEY NOT NULL
-                    ,VendorId           UNIQUEIDENTIFIER NOT NULL
-                    ,TransactionTypeId  UNIQUEIDENTIFIER NOT NULL
+                    Id                  INT PRIMARY KEY NOT NULL IDENTITY(1, 1)
+                    ,VendorId           INT NOT NULL
+                    ,TransactionTypeId  INT NOT NULL
                     ,Description        VARCHAR(100) NULL
-                    ,Amount             DECIMAL NOT NULL
+                    ,Amount             DECIMAL(18, 2) NOT NULL
                     ,DateCreated        DATETIME NOT NULL
                     ,DateModified       DATETIME NULL
                     ,CONSTRAINT FK_Transaction_VendorId FOREIGN KEY (VendorId) REFERENCES dbo.Vendor(Id)

@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using ExpenseTracker.Core.Common.Command.Transactions;
+using ExpenseTracker.Core.DataAccess.Models;
 using ExpenseTracker.Core.Infrastructure.Services;
 using MediatR;
 using ServiceStack.OrmLite;
@@ -19,11 +20,21 @@ namespace ExpenseTracker.Core.Features.Transactions
 
         protected override void HandleCore(AddTransactionCommand message)
         {
+            var vendorId = _db.Scalar<int?>("SELECT Id FROM Vendor WHERE Name = @VendorName;", new { message.VendorName});
+
+            if (!vendorId.HasValue)
+            {
+                vendorId = (int)_db.Insert(new Vendor
+                {
+                    Name = message.VendorName,
+                    DateCreated = _systemTime.Now,
+                }, true);
+            }
+
             _db.Insert(new DataAccess.Models.Transactions
             {
-                Id = message.Id,
-                VendorId = message.VendorId,
-                TransactionTypeId = message.TransactionTypeId,
+                VendorId = vendorId.Value,
+                TransactionTypeId = message.TransactionType,
                 Description = message.Description,
                 Amount = message.Amount,
                 DateCreated = _systemTime.Now,

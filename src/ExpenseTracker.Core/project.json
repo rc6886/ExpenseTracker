@@ -3,6 +3,7 @@
 
   "dependencies": {
     "Autofac": "4.1.1",
+    "Enumeration": "2.0.0",
     "MediatR": "2.1.0",
     "NETStandard.Library": "1.6.0",
     "ServiceStack.OrmLite.SqlServer.Core": "1.0.24"

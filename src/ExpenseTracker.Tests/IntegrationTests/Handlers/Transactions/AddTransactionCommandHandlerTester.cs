@@ -1,5 +1,6 @@
 ﻿using System;
 using ExpenseTracker.Core.Common.Command.Transactions;
+using ExpenseTracker.Core.DataAccess.Models;
 using NUnit.Framework;
 using ServiceStack.OrmLite;
 using Shouldly;
@@ -25,24 +26,21 @@ namespace ExpenseTracker.Tests.IntegrationTests.Handlers.Transactions
         public void Should_add_transaction()
         {
             var vendorId = InsertVendor();
-            var transactionTypeId = InsertTransactionType();
-            var transactionId = Guid.NewGuid();
 
             var command = new AddTransactionCommand
             {
-                Id = transactionId,
-                VendorId = vendorId,
-                TransactionTypeId = transactionTypeId,
+                VendorName = "Vendor",
+                TransactionType = 1,
                 Amount = 123.22M,
                 Description = "This is a description.",
             };
 
             Mediator.Send(command);
 
-            var transaction = Db.Single<Core.DataAccess.Models.Transactions>(x => x.Id == command.Id);
+            var transaction = Db.Single<Core.DataAccess.Models.Transactions>("SELECT TOP 1 * FROM dbo.Transactions;");
 
-            transaction.VendorId.ShouldBe(command.VendorId);
-            transaction.TransactionTypeId.ShouldBe(command.TransactionTypeId);
+            transaction.VendorId.ShouldBe(vendorId);
+            transaction.TransactionTypeId.ShouldBe(command.TransactionType);
             transaction.Description.ShouldBe(command.Description);
             transaction.Amount.ShouldBe(command.Amount);
         }
@@ -51,21 +49,16 @@ namespace ExpenseTracker.Tests.IntegrationTests.Handlers.Transactions
         {
             Db.ExecuteNonQuery("DELETE FROM dbo.Transactions;");
             Db.ExecuteNonQuery("DELETE FROM dbo.Vendor;");
-            Db.ExecuteNonQuery("DELETE FROM dbo.TransactionType;");
         }
 
-        private Guid InsertTransactionType()
+        private int InsertVendor()
         {
-            var id = Guid.NewGuid();
-            Db.ExecuteNonQuery($"INSERT INTO dbo.TransactionType VALUES('{id}', 'Test Type');");
-            return id;
-        }
-
-        private Guid InsertVendor()
-        {
-            var id = Guid.NewGuid();
-            Db.ExecuteNonQuery($"INSERT INTO dbo.Vendor (Id, Name, DateCreated) VALUES('{id}', 'Test Vendor', GETDATE());");
-            return id;
+            return (int)Db.Insert(new Vendor
+            {
+                Name = "Vendor",
+                DateCreated = DateTime.Now,
+                DateModified = null
+            }, true);
         }
     }
 }

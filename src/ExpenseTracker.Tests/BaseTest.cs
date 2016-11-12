@@ -9,6 +9,7 @@ namespace ExpenseTracker.Tests
     [TestFixture]
     public class BaseTest
     {
+        protected IContainer Container;
         protected IMediator Mediator;
         protected IDbConnection Db;
 
@@ -18,10 +19,10 @@ namespace ExpenseTracker.Tests
             var builder = new ContainerBuilder();
             // Tests aren't using the database so this is empty for now.
             builder.RegisterModule(new CoreModule("server=.;database=ExpenseTracker;integrated security=true;"));
-            var container = builder.Build();
+            Container = builder.Build();
 
-            Mediator = container.Resolve<IMediator>();
-            Db = container.Resolve<IDbConnection>();
+            Mediator = Container.Resolve<IMediator>();
+            Db = Container.Resolve<IDbConnection>();
         }
     }
 }

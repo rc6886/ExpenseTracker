@@ -13,16 +13,11 @@ namespace ExpenseTracker.WebUI.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet]
-        public IActionResult AddTransaction()
-        {
-            return View();
-        }
-
         [HttpPost]
-        public IActionResult AddTransaction(AddTransactionCommand command)
+        public IActionResult AddTransaction([FromBody] AddTransactionCommand command)
         {
-            return View();
+            _mediator.Send(command);
+            return new OkResult();
         }
     }
 }

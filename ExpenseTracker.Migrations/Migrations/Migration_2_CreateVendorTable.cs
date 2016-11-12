@@ -10,7 +10,7 @@ namespace ExpenseTracker.Migrations.Migrations
             Execute.Sql(@"
                 CREATE TABLE dbo.Vendor
                 (
-                    Id              UNIQUEIDENTIFIER PRIMARY KEY 
+                    Id              INT PRIMARY KEY NOT NULL IDENTITY(1, 1)
                     ,Name           VARCHAR(50) NOT NULL
                     ,DateCreated    DATETIME NOT NULL
                     ,DateModified   DATETIME NULL
